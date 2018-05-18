@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  # before_action :require_login
+
 	def new
 		@tweet = Tweet.new 
 	end 
@@ -11,6 +13,10 @@ class TweetsController < ApplicationController
 			render 'new'
 		end
 	end 
+
+	def index
+    @tweet = Tweet.all
+  end 
 
 	private
 
