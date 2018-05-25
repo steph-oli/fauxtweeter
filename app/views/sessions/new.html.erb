@@ -1,9 +1,15 @@
-<h1>Login Page</h1>
+<h1>Log In</h1>
 
-<%= form_tag :sessions do %>
-<%= label_tag :username %>
-<%= text_field_tag :username %>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<%= submit_tag %>
+<%= form_for :login do |f| %>
+  <div>
+    <%= f.label :username%>
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit "Log In" %>
+  </div>
 <% end %>

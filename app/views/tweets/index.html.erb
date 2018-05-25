@@ -1,12 +1,17 @@
 <ul>
+ 
  <% @tweet.each do |tweet| %>
+ 
  <strong><%= link_to tweet.user.username, user_path(tweet.user_id) %></strong>
+ 
  <%= tweet.created_at.strftime( '%d %b %Y at %I:%M %p' ) %>
  <p><%= tweet.content %></p>
+
 ********************************************
+
 <br><br>
  <% end %>
  </ul>
 
-<h3>Current User: <%= @tweet.first.user.username %></h3>
-<h3>Create New Tweet: <%= link_to 'New Tweet', new_tweet_path %></h3>
+<h3>Current User: <%= @tweets.first.user.username %></h3>
+<h3>Create New Tweet: <%= link_to 'New Tweet', new_tweet_path(@tweets) %></h3>
