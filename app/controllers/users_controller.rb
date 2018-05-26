@@ -16,11 +16,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.username.downcase!
-
       if @user.save
         flash[:notice] = "Account created successfully!"
-        redirect_to root_path
+        redirect_to users_path
       else
         flash.now.alert = "Oops, couldn't create your account. Are you using a valid email / password? You should try again!"
         render :new
@@ -29,7 +27,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:id).permit(:username, :password)
+      params.require(:user).permit(:username, :password)
     end 
 
 end
